@@ -7,50 +7,51 @@
 		A quick introduction to ESLint - pichfl talks
 	</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="//pichfl.github.io/talks/assets/main.b494d060.css">
+	<link rel="stylesheet" href="//pichfl.github.io/talks/assets/main.9ad53bc1.css">
 	<style>section:first-child {
-  background: url(eslint-logo.c24a29a6.svg) center no-repeat;
+  background-image: url(eslint-logo.c24a29a6.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 </style>
 </head>
 <body>
 	<div class="site">
 
-<article class="slides">
-<section id="slide-intro">
-	<h1>A quick introduction to<span class="widont">&nbsp;</span>ESLint</h1>
-	<p><em>By Florian Pichler</em></p>
+		<article class="slides">
+						<section id="intro" class="slides__slide--title">
+				<p><h1>A quick introduction to<span class="widont">&nbsp;</span>ESLint</h1></p>
+<p><p><em>By Florian Pichler</em></p></p>
+<footer><a href="index.55f34d0f.html">More talks by @pichfl</a></footer>
 
-	<footer><a href="index.d98152a6.html">More talks by @pichfl</a></footer>
-</section>
-
-<section id="slide-1">
-<h2 id="what-s-linter-">What’s linter?</h2>
+			</section>
+			<section id="what" class="slides__slide">
+				<h2 id="what-s-linter-">What’s linter?</h2>
 <blockquote>
 <p>generically, lint or a linter is any tool that flags suspicious usage in software written in any computer language. – via <a href="https://en.wikipedia.org/wiki/Lint_(software">Wikipedia</a></p>
 </blockquote>
-</section>
 
-<section id="slide-2">
-<h2 id="why-you-should-use-one">Why you should use one</h2>
+			</section>
+			<section id="why" class="slides__slide">
+				<h2 id="why-you-should-use-one">Why you should use one</h2>
 <ul>
 <li>static analysis helps identify syntax and other code errors without code execution</li>
 <li>the same process can be used to validate code style rules</li>
 </ul>
-</section>
 
-<section id="slide-3">
-<h2 id="other-tools-beside-eslint">Other tools beside ESLint</h2>
+			</section>
+			<section id="previously" class="slides__slide">
+				<h2 id="other-tools-beside-eslint">Other tools beside ESLint</h2>
 <ul>
 <li><a href="http://jslint.com">JSLint</a>: The grandfather of JavaScript code quality tools, written by Douglas Crockford.</li>
 <li><a href="http://jshint.com">JSHint</a>: JSHint is a community-driven tool to detect errors and potential problems in JavaScript code and to enforce your team’s coding conventions.</li>
 <li><a href="http://jscs.info">JSCS</a>: JSCS is a code style linter/formatter for programmatically enforcing your style guide.
 JSLint is too inflexible. Until ESLint became available may projects used a combination of JSHint and JSCS to provide a good coverage for style and errors.</li>
 </ul>
-</section>
 
-<section id="slide-4">
-<h2 id="why-eslint">Why ESLint</h2>
+			</section>
+			<section id="why-eslint" class="slides__slide">
+				<h2 id="why-eslint">Why ESLint</h2>
 <ul>
 <li>Plugin based architecture (Browserify, Webpack, Gulp, and many more show this works rather well)</li>
 <li>Uses an AST which allows more complex rules</li>
@@ -58,26 +59,39 @@ JSLint is too inflexible. Until ESLint became available may projects used a comb
 <li>Very easy configuration which even allows for inheritance which helps in large projects</li>
 <li>High test coverage</li>
 </ul>
-</section>
 
-<section id="slide-5">
+			</section>
+			<section id="setup" class="slides__slide">
+				<h2 id="installation">Installation</h2>
+<pre><code class="lang-bash"><span class="hljs-comment"># Command Line Interface</span>
+npm i -g eslint
+</code></pre>
 <h2 id="usage">Usage</h2>
-<p>TBD;
-TODO:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># The CLI Supports globbing</span>
+eslint **/*.js
+</code></pre>
+<p>Plugins for Grunt, Gulp, Webpack and many others exist as well. <br>
+The generator for this slideshow actually uses <strong>gulp-eslint</strong>.</p>
+
+			</section>
+			<section id="configuration" class="slides__slide">
+				<h2 id="configuration">Configuration</h2>
 <ul>
-<li>ESLint these files</li>
+<li>Inline with comments</li>
+<li>.eslintrc with support for JSON and YAML</li>
+<li>eslintConfig filed in package.json
+Configuration can be <strong>inherited</strong> (either from a preset or a different folder)</li>
 </ul>
-</section>
 
+			</section>
+			<section id="thanks" class="slides__slide--title">
+				<h1 id="thank-you">Thank You</h1>
 
-<section id="slide-last">
-	<h1>Thank You</h1>
-</section>
+			</section>
 
-
-
-</article>
-
+		</article>
+	
 </div>
+<script src="//pichfl.github.io/talks/assets/bundle.2a404cd1.js"></script>
 </body>
 </html>
