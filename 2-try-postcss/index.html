@@ -1,0 +1,13 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><title>pichfl talks</title><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="//pichfl.github.io/talks/assets/main.db1471ca.css"></head><body><div class="site"><article class="slides"><section id="intro" class="slides__slide--title"><p><h1>Try PostCSS</h1></p><p><em>By Florian Pichler</em></p><footer><a href="../index.0348c82d.html">More talks by @pichfl</a></footer></section><section id="what" class="slides__slide"><h2 id="post-what-">Post what?</h2><blockquote><p>PostCSS is a tool for transforming styles with JS plugins.</p></blockquote><ul><li>Lint your styles</li><li>Add new CSS features</li><li>Optimize output</li><li>Inline images</li></ul></section><section id="usage" class="slides__slide"><h2 id="use-it">Use it</h2><p>Plugins are available for all common build tools like Gulp, Grunt, Webpack, etc.</p><h3 id="example-in-gulp-js">Example in Gulp.js</h3><pre><code class="lang-js"><span class="hljs-keyword">import</span> postcss <span class="hljs-keyword">from</span> <span class="hljs-string">'gulp-postcss'</span>;
+
+task(<span class="hljs-string">'styles'</span>, () =&gt; {
+    <span class="hljs-keyword">return</span> src(<span class="hljs-string">'**/*.css'</span>)
+        .pipe(sourcemaps.init())
+        .pipe(postcss([
+            <span class="hljs-comment">// configure plugins here</span>
+        ]))
+        .pipe(sourcemaps.write())
+        .pipe(dest(<span class="hljs-string">'build'</span>));
+});
+</code></pre></section><section id="plugins" class="slides__slide"><h2 id="plugins">Plugins</h2></section><section id="autoprefixer" class="slides__slide"><h2 id="autoprefixer">Autoprefixer</h2><pre><code class="lang-js">alert(<span class="hljs-string">'Test'</span>);
+</code></pre></section><section id="thanks" class="slides__slide--title"><h1 id="thank-you">Thank You</h1></section></article></div><script src="//pichfl.github.io/talks/assets/bundle.e7a86188.js"></script></body></html>
