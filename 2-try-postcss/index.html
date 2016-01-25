@@ -1,4 +1,12 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Try PostCSS - pichfl talks</title><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="//pichfl.github.io/talks/assets/main.ab47777b.css"></head><body><div class="site"><article class="slides"><section id="intro" class="slides__slide--title"><p><h1>Try PostCSS</h1></p><p><em>By Florian Pichler</em></p><footer><a href="../">More talks by @pichfl</a></footer></section><section id="what" class="slides__slide"><h2 id="post-what-">Post what?</h2><blockquote><p>PostCSS is a tool for transforming styles with <span class="caps">JS</span><span class="widont">&nbsp;</span>plugins.</p></blockquote><ul><li>Lint your styles</li><li>Add new <span class="caps">CSS</span><span class="widont">&nbsp;</span>features</li><li>Optimize output</li><li>Inline images</li></ul></section><section id="usage" class="slides__slide"><h2 id="use-it">Use it</h2><p>Plugins are available for all common build tools like Gulp, Grunt, Webpack,<span class="widont">&nbsp;</span>etc.</p><h3 id="example-in-gulp-js">Example in Gulp.js</h3><pre><code class="lang-js"><span class="hljs-keyword">import</span> postcss <span class="hljs-keyword">from</span> <span class="hljs-string">'gulp-postcss'</span>;
+<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Try PostCSS - pichfl talks</title><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="//pichfl.github.io/talks/assets/main.6c9605af.css"><style>section:first-child {
+  background-image: url(postcss-logo.ee968175.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#intro {
+	background-color: #DD3A0A;
+}</style></head><body><div class="site"><article class="slides"><section id="intro" class="slides__slide--title"><p><h1>Try PostCSS</h1></p><p><em>By Florian Pichler</em></p><footer><a href="../">More talks by @pichfl</a></footer></section><section id="what" class="slides__slide"><h2 id="post-what-">Post what?</h2><blockquote><p>PostCSS is a tool for transforming styles with <span class="caps">JS</span><span class="widont">&nbsp;</span>plugins.</p></blockquote><ul><li>Lint your styles</li><li>Add new <span class="caps">CSS</span><span class="widont">&nbsp;</span>features</li><li>Optimize output</li><li>Inline images</li></ul></section><section id="usage" class="slides__slide"><h2 id="use-it">Use it</h2><p>Plugins are available for all common build tools like Gulp, Grunt, Webpack,<span class="widont">&nbsp;</span>etc.</p><h3 id="example-in-gulp-js">Example in Gulp.js</h3><pre><code class="lang-js"><span class="hljs-keyword">import</span> postcss <span class="hljs-keyword">from</span> <span class="hljs-string">'gulp-postcss'</span>;
 
 task(<span class="hljs-string">'styles'</span>, () =&gt; {
     <span class="hljs-keyword">return</span> src(<span class="hljs-string">'**/*.css'</span>)
@@ -9,5 +17,22 @@ task(<span class="hljs-string">'styles'</span>, () =&gt; {
         .pipe(sourcemaps.write())
         .pipe(dest(<span class="hljs-string">'build'</span>));
 });
-</code></pre></section><section id="plugins" class="slides__slide"><h2 id="plugins">Plugins</h2></section><section id="autoprefixer" class="slides__slide"><h2 id="autoprefixer">Autoprefixer</h2><pre><code class="lang-js">alert(<span class="hljs-string">'Test'</span>);
-</code></pre></section><section id="thanks" class="slides__slide--title"><h1 id="thank-you">Thank You</h1></section></article></div><script src="//pichfl.github.io/talks/assets/bundle.fffcada4.js"></script></body></html>
+</code></pre></section><section id="plugins" class="slides__slide"><h2 id="plugins">Plugins</h2><p>Personal favorites</p><ul><li>Autoprefixer</li><li><span class="caps">CSS</span> MQPacker</li><li>cssnano</li></ul></section><section id="autoprefixer" class="slides__slide"><h2 id="autoprefixer">Autoprefixer</h2><p>Adds and removes vendor prefixes based on <em>Can I Use</em> browser<span class="widont">&nbsp;</span>statistics.</p><pre><code class="lang-css"><span class="hljs-comment">/* input */</span>
+<span class="hljs-selector-pseudo">:fullscreen</span> <span class="hljs-selector-tag">a</span> { <span class="hljs-attribute">display</span>: flex; }
+</code></pre><pre><code class="lang-css"><span class="hljs-comment">/* output after Autoprefixer with browsers = last 2 versions */</span>
+<span class="hljs-selector-pseudo">:-webkit-full-screen</span> <span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">display</span>: -webkit-flex;
+    <span class="hljs-attribute">display</span>: flex; }
+
+<span class="hljs-selector-pseudo">:-moz-full-screen</span> <span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">display</span>: flex; }
+
+<span class="hljs-selector-pseudo">:-ms-fullscreen</span> <span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">display</span>: -ms-flexbox;
+    <span class="hljs-attribute">display</span>: flex; }
+
+<span class="hljs-selector-pseudo">:fullscreen</span> <span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">display</span>: -webkit-flex;
+    <span class="hljs-attribute">display</span>: -ms-flexbox;
+    <span class="hljs-attribute">display</span>: flex; }
+</code></pre></section><section id="mqpacker" class="slides__slide"><h2 id="css-mqpacker"><span class="caps">CSS</span> MQPacker</h2><p>Packs identical media queries at the end of your<span class="widont">&nbsp;</span>stylesheet.</p><ul><li>Very useful for cleaning up after<span class="widont">&nbsp;</span><span class="caps">SASS</span></li><li><strong>Danger:</strong> May change the order of your<span class="widont">&nbsp;</span>rules</li><li>Custom rule sorting via<span class="widont">&nbsp;</span>callback</li></ul><p>More samples and code <a href="https://github.com/hail2u/node-css-mqpacker">on<span class="widont">&nbsp;</span>GitHub</a>.</p></section><section id="cssnano" class="slides__slide"><h2 id="cssnano">cssnano</h2><ul><li>Combines a long list of invidual PostCSS plugins to minifiy<span class="widont">&nbsp;</span><span class="caps">CSS</span></li><li>Among the rules:<ul><li>whitespace <span class="amp">&amp;</span> final semicolon<span class="widont">&nbsp;</span>removal</li><li>removal of comments (except for<span class="widont">&nbsp;</span>licenses)</li><li>discard duplicate rules</li><li>merge <span class="amp">&amp;</span> optimise<span class="widont">&nbsp;</span>selectors</li><li>merge adjacent rules</li></ul></li><li>Unsafe rules can be<span class="widont">&nbsp;</span>disabled</li><li>See source of this presentation for<span class="widont">&nbsp;</span>sample</li></ul></section><section id="more-plugins" class="slides__slide"><h2 id="more-plugins">More plugins</h2><ul><li><span class="caps">SASS</span> like syntax</li><li><span class="caps">CSS</span> Stats for selector usage, colors,<span class="widont">&nbsp;</span>etc.</li></ul><p>Online at <a href="http://postcss.parts">postcss.parts</a></p></section><section id="thanks" class="slides__slide--title"><h1 id="thank-you">Thank You</h1></section></article></div><script src="//pichfl.github.io/talks/assets/bundle.d59f830e.js"></script></body></html>
